@@ -52,7 +52,9 @@ function newTodo() {
   }
 
   //делаем кнопку недоступной. с неотмеченными элементами она не нужна
-  document.querySelector('.todo-delete').disabled = true;
+  if (count === 0) {
+    document.querySelector('.todo-delete').disabled = true;
+  }
 
   //при выборе задачи обновляем счетчик невыбранных элементов и работаем над доступностью кнопки
   checkbox.onclick = event => {
@@ -80,7 +82,7 @@ function newTodo() {
         uncheckedCountSpan.innerHTML = list.childElementCount - count;
       }
     });
-    
+
     //делаем кнопку недоступной. с неотмеченными элементами она не нужна
     document.querySelector('.todo-delete').disabled = true;
 
